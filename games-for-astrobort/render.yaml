@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: games-for-astrobort
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: build
