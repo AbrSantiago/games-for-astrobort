@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +13,56 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.games-table {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.games-table th,
+.games-table td {
+  border: 1px solid #aaaaaa;
+  padding: 8px;
+}
+
+.games-table th {
+  background-color: #4CAF50;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.games-table tr:nth-child(even) {
+  background-color: #414141;
+}
+
+.games-table tr:hover {
+  background-color: #575757;
+}
+
+.games-table th,
+.games-table td {
+  text-align: left;
+  padding: 12px;
+}
+
+.games-table th {
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.games-table td {
+  font-size: 18px;
+}
+
+.games-table td:first-child {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
