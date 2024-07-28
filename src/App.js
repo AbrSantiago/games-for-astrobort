@@ -21,7 +21,7 @@ function App() {
               <th>ID</th>
               <th>Recomendado por</th>
               <th>Nombre</th>
-              <th>Calificación</th>
+              <th>Nota</th>
               <th>Género</th>
               <th>Multi</th>
               {/* <th>Tags</th> */}
@@ -35,7 +35,7 @@ function App() {
             {juegos.map((juego, index) => (
               <tr key={index}>
                 <td>{juego.id}</td>
-                <td>{juego.recomendedBy}</td>
+                <td>{juego.recomendedBy == 'Juegos de la lista' ? 'Lista' : juego.recomendedBy}</td>
                 <td>{juego.name}</td>
                 <td>{juego.calification}</td>
                 <td>{juego.genre ? juego.genre.replace(/\//g, ', ') : 'undefined'}</td>
