@@ -49,6 +49,14 @@ function App() {
           </tbody>
         </table>
       </header>
+      <footer className="App-footer">
+        <p>Desarrollado por:</p>
+        <ul>
+          <li>Idea: <a href="https://x.com/Cori_CatAstro" target="_blank" rel="noopener noreferrer">Coralcita</a></li>
+          <li>Programador: <a href="https://github.com/AbrSantiago" target="_blank" rel="noopener noreferrer">Santiago</a></li>
+          <li>Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">Frannn</a></li>
+        </ul>
+      </footer>
     </div>
   );
 }

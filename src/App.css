@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-header {
@@ -11,6 +12,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 30px;
 }
 
 .games-table {
@@ -65,4 +67,32 @@
 h1 {
   font-size: 2em;
   margin-bottom: 20px;
+}
+
+.App-footer {
+  background-color: #363e4d;
+  color: white;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.App-footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.App-footer li {
+  margin: 5px 0;
+}
+
+.App-footer a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.App-footer a:hover {
+  text-decoration: underline;
 }
