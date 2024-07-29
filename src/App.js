@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [juegos, setJuegos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const url = 'https://script.google.com/macros/s/AKfycbzWF99iD0xVU6Wvl0Ec5hsx1OfBoJw-GWeRwTEZEbGtX72nYlXbNc4rUSYzJPdULNPUkQ/exec';
@@ -11,11 +12,26 @@ function App() {
       .then(data => setJuegos(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
+
+  const handleSearch = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredJuegos = juegos.filter(juego =>
+    juego['Nombre'].toLowerCase().includes(searchTerm.toLowerCase())
+  );
   
   return (
     <div className="App">
       <header className="App-header">
         <h1>Juegos recomendados para Astrobort</h1>
+        <input
+          type="text"
+          placeholder="Buscar por nombre"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
         <table className="games-table">
           <thead>
             <tr>
@@ -32,7 +48,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {juegos.map((juego, index) => (
+            {filteredJuegos.map((juego, index) => (
               <tr key={index}>
                 <td>{juego.ID}</td>
                 <td>{juego.Recomendado_por === 'Juegos de la lista' ? 'Lista' : juego.Recomendado_por}</td>
@@ -54,7 +70,7 @@ function App() {
         <ul>
           <li>Idea: <a href="https://x.com/Cori_CatAstro" target="_blank" rel="noopener noreferrer">Coralcita</a></li>
           <li>Programador: <a href="https://github.com/AbrSantiago" target="_blank" rel="noopener noreferrer">Santiago</a></li>
-          <li>Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">Frannn</a></li>
+          <li>Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">FranTwo</a></li>
         </ul>
       </footer>
     </div>
