@@ -12,7 +12,6 @@ function App() {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
   
-  console.log(juegos);
   return (
     <div className="App">
       <header className="App-header">
@@ -26,7 +25,6 @@ function App() {
               <th>Nota</th>
               <th>Género</th>
               <th>Multi</th>
-              {/* <th>Tags</th> */}
               <th>Comentario</th>
               <th>¿Pago?</th>
               <th>Plataforma</th>
@@ -37,12 +35,11 @@ function App() {
             {juegos.map((juego, index) => (
               <tr key={index}>
                 <td>{juego.ID}</td>
-                <td>{juego.Recomendado_por == 'Juegos de la lista' ? 'Lista' : juego.Recomendado_por}</td>
+                <td>{juego.Recomendado_por === 'Juegos de la lista' ? 'Lista' : juego.Recomendado_por}</td>
                 <td>{juego.Nombre}</td>
                 <td>{juego.Nota}</td>
                 <td>{juego.Genero ? juego.Genero.replace(/\//g, ', ') : 'undefined'}</td>
                 <td>{juego.Multi}</td>
-                {/* <td>{juego.tags ? juego.tags.join(', ') : ''}</td> */}
                 <td>{juego.Comentario ? juego.Comentario : '-'}</td>
                 <td>{juego.Pago ? 'Sí' : 'No'}</td>
                 <td>{juego.Plataforma ? juego.Plataforma : 'PC'}</td>
