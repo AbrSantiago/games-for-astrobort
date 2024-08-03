@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { Icon } from '@iconify/react';
 
 function App() {
   const [juegos, setJuegos] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isSortedAscending, setIsSortedAscending] = useState(true);
+  const [multiFilter, setMultiFilter] = useState(0);
 
   useEffect(() => {
     const url = 'https://script.google.com/macros/s/AKfycbzWF99iD0xVU6Wvl0Ec5hsx1OfBoJw-GWeRwTEZEbGtX72nYlXbNc4rUSYzJPdULNPUkQ/exec';
@@ -17,27 +20,73 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
+  const handleMultiFilterChange = () => {
+    setMultiFilter((multiFilter + 1) % 3);
+  };
+
   const filteredJuegos = juegos.filter(juego =>
     juego['Nombre'].toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  )
+  .filter(juego => {
+    if (multiFilter === 1) return juego['Multi'].toLowerCase() === 'sí' || 
+                                  juego['Multi'].toLowerCase() === 'si' ||
+                                  juego['Multi'].toLowerCase() === 'sí (coop)';
+    if (multiFilter === 2) return juego['Multi'].toLowerCase() === 'no';
+    return true; // Si multiFilter es 0, muestra todos los juegos
+  });
+
+  const handleSort = () => {
+    const sortedJuegos = [...juegos].sort((a, b) => {
+      if (isSortedAscending) {
+        return a['Nombre'].localeCompare(b['Nombre']);
+      } else {
+        return b['Nombre'].localeCompare(a['Nombre']);
+      }
+    });
+    setJuegos(sortedJuegos);
+    setIsSortedAscending(!isSortedAscending);
+  };
   
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Juegos recomendados para Astrobort</h1>
-        <input
-          type="text"
-          placeholder="Buscar por nombre"
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-input"
-        />
+        <img src={'title3.png'} alt='title' width="854" height="235" />
+        <div className='search-bar'>
+          <Icon icon="material-symbols:search" className="search-icon" />
+          <input
+            type="text"
+            placeholder="Buscar por nombre"
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-input"
+          />
+        </div>
+
+        <div className="multi-filter">
+          <label>
+            Multijugador
+            <input
+              type="checkbox"
+              checked={multiFilter === 1}
+              ref={el => el && (el.indeterminate = multiFilter === 0)}
+              onChange={handleMultiFilterChange}
+            />
+            {/* {multiFilter === 0 && ' '}
+            {multiFilter === 1 && ' Sí'}
+            {multiFilter === 2 && ' No'} */}
+          </label>
+        </div>
+
         <table className="games-table">
           <thead>
             <tr>
               <th>ID</th>
               <th>Recomendado por</th>
-              <th>Nombre</th>
+              <th className='tnombre'>Nombre
+                <button onClick={handleSort} className="sort-button">
+                  <Icon icon="mdi:sort-alphabetical-ascending" className='sort-icon'/>
+                </button>
+              </th>
               <th>Nota</th>
               <th>Género</th>
               <th>Multi</th>
@@ -57,7 +106,7 @@ function App() {
                 <td>{juego.Genero ? juego.Genero.replace(/\//g, ', ') : 'undefined'}</td>
                 <td>{juego.Multi}</td>
                 <td>{juego.Comentario ? juego.Comentario : '-'}</td>
-                <td>{juego.Pago ? 'Sí' : 'No'}</td>
+                <td>{juego.Pago}</td>
                 <td>{juego.Plataforma ? juego.Plataforma : 'PC'}</td>
                 <td>{juego.Duracion}</td>
               </tr>
@@ -68,9 +117,20 @@ function App() {
       <footer className="App-footer">
         <p>Desarrollado por:</p>
         <ul>
-          <li>Idea: <a href="https://x.com/Cori_CatAstro" target="_blank" rel="noopener noreferrer">Coralcita</a></li>
-          <li>Programador: <a href="https://github.com/AbrSantiago" target="_blank" rel="noopener noreferrer">Santiago</a></li>
-          <li>Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">FranTwo</a></li>
+          <li>
+            Idea: <a href="https://x.com/Cori_CatAstro" target="_blank" rel="noopener noreferrer">Coralcita
+            <Icon icon="mdi:twitter" className="twitter-icon"/>
+            </a>
+          </li>
+          <li>
+            Programador: <a href="https://github.com/AbrSantiago" target="_blank" rel="noopener noreferrer">Santiago
+            <Icon icon="mdi:github" className="github-icon" />
+            </a>
+          </li>
+          <li>
+            Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">FranTwo
+            <Icon icon="mdi:twitter" className="twitter-icon"/>
+          </a></li>
         </ul>
       </footer>
     </div>

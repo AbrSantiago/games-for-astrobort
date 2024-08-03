@@ -5,11 +5,10 @@
   min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  background: linear-gradient(to right, #8c52ff, #b84ed3);
 }
 
 .App-header {
-  background-color: #282c34;
-  /* min-height: 84vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,13 +18,49 @@
   margin-bottom: 30px;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #61dafb;
+  font-size: 24px;
+}
+
 .search-input {
   width: 500px;
   margin: 20px 0;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
+  background-color: #ffbbea;
+  color: white;
   border-radius: 4px;
+}
+
+::placeholder {
+  color: white;
+  font-weight: bold;
+  opacity: 1; /* Asegúrate de que el color sea completamente opaco */
+}
+
+.multi-filter {
+  margin: 10px 0;
+  color: #61dafb;
+  font-size: 18px;
+}
+
+.multi-filter label {
+  display: flex;
+  align-items: center;
+}
+
+.multi-filter input {
+  margin-left: 8px;
+  transform: scale(1.2);
 }
 
 .games-table {
@@ -34,7 +69,8 @@
   max-width: 1200px;
   margin: 20px auto;
   border-collapse: collapse;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(182, 182, 182, 0.1);
+  table-layout: auto;
 }
 
 .games-table th,
@@ -51,11 +87,11 @@
 }
 
 .games-table tr:nth-child(even) {
-  background-color: #414141;
+  background-color: #85858536;
 }
 
 .games-table tr:hover {
-  background-color: #575757;
+  background-color: #ffffff2f;
 }
 
 .games-table th,
@@ -65,8 +101,12 @@
 }
 
 .games-table th {
+  white-space: nowrap;
+}
+
+.games-table th {
   font-size: 20px;
-  background-color: #4CAF50;
+  background-color: #ffbbea;
   color: white;
 }
 
@@ -78,14 +118,29 @@
   font-weight: bold;
 }
 
-h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+.sort-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.sort-icon {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+img {
+  /* font-size: 2em; */
+  margin-top: 30px;
 }
 
 .App-footer {
-  background-color: #363e4d;
+  background-color: #ffbbea;
   color: white;
+  font-weight: bold;
   position: relative;
   width: 100%;
   bottom: 0;
@@ -103,10 +158,24 @@ h1 {
 }
 
 .App-footer a {
-  color: #61dafb;
+  color: #8c52ff;
   text-decoration: none;
 }
 
 .App-footer a:hover {
   text-decoration: underline;
+}
+
+.github-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #8c52ff;
+  font-size: 18px;
+}
+
+.twitter-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #8c52ff;
+  font-size: 18px;
 }
