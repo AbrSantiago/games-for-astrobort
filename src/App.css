@@ -21,7 +21,7 @@
 .search-bar {
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 5px 0;
 }
 
 .search-icon {
@@ -130,11 +130,6 @@
 .sort-icon {
   font-size: 16px;
   color: #ffffff;
-}
-
-img {
-  /* font-size: 2em; */
-  margin-top: 30px;
 }
 
 .App-footer {

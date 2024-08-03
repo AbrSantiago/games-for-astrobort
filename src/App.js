@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={'title3.png'} alt='title' width="854" height="235" />
+        <img src={'title4.png'} alt='title' width="1352" height="136" />
         <div className='search-bar'>
           <Icon icon="material-symbols:search" className="search-icon" />
           <input
@@ -71,9 +71,6 @@ function App() {
               ref={el => el && (el.indeterminate = multiFilter === 0)}
               onChange={handleMultiFilterChange}
             />
-            {/* {multiFilter === 0 && ' '}
-            {multiFilter === 1 && ' Sí'}
-            {multiFilter === 2 && ' No'} */}
           </label>
         </div>
 
