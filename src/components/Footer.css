@@ -1,0 +1,42 @@
+.App-footer {
+  background-color: #ffbbea;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.App-footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.App-footer li {
+  margin: 5px 0;
+}
+
+.App-footer a {
+  color: #8c52ff;
+  text-decoration: none;
+}
+
+.App-footer a:hover {
+  text-decoration: underline;
+}
+
+.github-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #8c52ff;
+  font-size: 18px;
+}
+
+.twitter-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  color: #8c52ff;
+  font-size: 18px;
+}

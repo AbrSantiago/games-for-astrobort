@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Icon } from '@iconify/react';
+import Footer from './components/Footer';
 
 function App() {
   const [juegos, setJuegos] = useState([]);
@@ -51,6 +52,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={'title4.png'} alt='title' width="1352" height="136" />
+        
         <div className='search-bar'>
           <Icon icon="material-symbols:search" className="search-icon" />
           <input
@@ -111,25 +113,8 @@ function App() {
           </tbody>
         </table>
       </header>
-      <footer className="App-footer">
-        <p>Desarrollado por:</p>
-        <ul>
-          <li>
-            Idea: <a href="https://x.com/Cori_CatAstro" target="_blank" rel="noopener noreferrer">Coralcita
-            <Icon icon="mdi:twitter" className="twitter-icon"/>
-            </a>
-          </li>
-          <li>
-            Programador: <a href="https://github.com/AbrSantiago" target="_blank" rel="noopener noreferrer">Santiago
-            <Icon icon="mdi:github" className="github-icon" />
-            </a>
-          </li>
-          <li>
-            Ayudante: <a href="https://x.com/FFranTwo" target="_blank" rel="noopener noreferrer">FranTwo
-            <Icon icon="mdi:twitter" className="twitter-icon"/>
-          </a></li>
-        </ul>
-      </footer>
+
+      <Footer/>
     </div>
   );
 }
